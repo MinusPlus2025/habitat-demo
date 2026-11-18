@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>栖境 HABITAT · 物种—栖息地生成器</title>
+    <script type="module" crossorigin src="/assets/habitat-MybgvqGu.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/GLTFLoader-BmbHiWu7.js">
+    <link rel="modulepreload" crossorigin href="/assets/meshopt_decoder.module-DPrBktm2.js">
+    <link rel="modulepreload" crossorigin href="/assets/RoomEnvironment-C8D_NyEC.js">
+    <link rel="modulepreload" crossorigin href="/assets/Pass-DCl3U3Ct.js">
+    <link rel="modulepreload" crossorigin href="/assets/spark.module-Bx9lPBz2.js">
+    <link rel="modulepreload" crossorigin href="/assets/build-BvJLnksN.js">
+    <link rel="stylesheet" crossorigin href="/assets/habitat-BCG57mVo.css">
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="loading" class="loading">
+      <div class="loading-kicker">HABITAT · SPECIES–ENVIRONMENT COMPILER</div>
+      <div class="loading-title">正在进入栖境</div>
+      <div class="loading-track"><div id="load-fill" class="loading-fill"></div></div>
+      <div class="loading-sub">Lux3D 物种 · SpatialGen 栖息地 · Viewer</div>
+    </div>
+
+    <section id="brief" class="brief">
+      <div class="brief-kicker">HABITAT / SPECIES–ENVIRONMENT COMPILER</div>
+      <h1>栖境</h1>
+      <p class="brief-lead">输入一段生物 brief，得到它的 3D 身体、它住的栖息地，以及一张可交付的设定卡。</p>
+
+      <label for="brief-input">BRIEF</label>
+      <textarea id="brief-input" spellcheck="false">一只四足双翼的洞穴生物，青玉色外骨骼，四条石柱般的腿，一对展开的翼膜，背部有鳃状发光器官，长颈，头部无眼，生物发光。它住在废墟下的洞穴里。</textarea>
+
+      <button id="btn-generate">生成栖息地 ↗</button>
+      <div class="brief-meta">REAL LUX3D TASK · #8341646 · 预生成演示</div>
+      <div class="brief-stack">LUX3D · SPATIALGEN · VIEWER · API</div>
+    </section>
+
+    <div id="steps" class="steps hidden">
+      <div class="steps-inner">
+        <div class="steps-kicker">COMPILING HABITAT</div>
+        <div id="step-label" class="step-label">解析身体</div>
+        <div class="step-track"><div id="step-fill"></div></div>
+        <div id="step-detail" class="step-detail">读取六足 / 鳃 / 翼 / 发光器</div>
+      </div>
+    </div>
+
+    <button id="btn-enter" class="enter hidden">进入栖息地 →</button>
+
+    <div id="caption" class="caption hidden">
+      <div id="cap-kicker" class="cap-kicker">01 / BODY</div>
+      <div id="cap-title" class="cap-title">它没有眼睛。它用身体丈量黑暗。</div>
+    </div>
+
+    <div id="walk-hud" class="walk-hud hidden">
+      <span>ESC 退出</span>
+      <span>H 栖息地平面</span>
+    </div>
+
+    <div id="plan" class="plan hidden">
+      <div class="plan-head">
+        <div>
+          <div class="plan-kicker">HABITAT PLAN · BODY → SPACE</div>
+          <div class="plan-title">栖境平面 / 四足 + 双翼 · 鳃 · 发光器</div>
+        </div>
+        <button id="btn-plan-close">✕</button>
+      </div>
+      <div class="plan-stage">
+        <div class="plan-ring"></div>
+        <div class="plan-nest">NEST<br /><b>发光器</b></div>
+        <div class="plan-shaft">WING<br /><b>天井</b></div>
+        <div class="plan-water">GILL<br /><b>水房</b></div>
+        <div class="plan-leg l1">01</div>
+        <div class="plan-leg l2">02</div>
+        <div class="plan-leg l3">03</div>
+        <div class="plan-leg l4">04</div>
+        <div class="plan-leg l5">05</div>
+        <div class="plan-leg l6">06</div>
+      </div>
+      <div class="plan-foot">六个洞室 · 一个水房 · 一个天井 · 一个暗巢</div>
+    </div>
+
+    <button id="btn-field" class="field-btn hidden">打开设定卡 ↗</button>
+
+    <div id="field-card" class="modal hidden">
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">SPECIMEN CARD · CONCEPT PACK</div>
+            <h2>穴居双翼鳃兽 · SPECIMEN-02</h2>
+          </div>
+          <button id="btn-card-close" class="modal-close">✕</button>
+        </div>
+        <p class="modal-lead">一只没有眼睛的洞穴生物。身体不是外观，是空间规则。</p>
+        <div class="map-table">
+          <div><span>四足 + 双翼</span><b>六个洞室</b><em>LEG 01–06</em></div>
+          <div><span>鳃</span><b>水房</b><em>GILL</em></div>
+          <div><span>翼</span><b>天井</b><em>WING</em></div>
+          <div><span>发光器</span><b>暗巢</b><em>NEST</em></div>
+        </div>
+        <div class="modal-meta">
+          <div><span>LUX3D TASK</span><b>#8341646</b></div>
+          <div><span>HABITAT</span><b>CAVE-02 · 6+3</b></div>
+          <div><span>OUTPUT</span><b>GLB · 设定卡 · 90s 预演</b></div>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-download">下载设定卡 JSON</button>
+          <button id="btn-copy">复制 brief</button>
+        </div>
+        <p class="modal-note">FOR GAME / FILM PRE-VIS · 把“角色—场景”两次概念设计压成一次生成。</p>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+  </body>
+</html>
