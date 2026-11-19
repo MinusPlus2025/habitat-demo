@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>物种繁育所 · BREED</title>
+  <script type="module" crossorigin src="/habitat-demo/assets/breed-DYUZsVyw.js"></script>
+  <link rel="modulepreload" crossorigin href="/habitat-demo/assets/GLTFLoader-D0KMUT2V.js">
+  <link rel="modulepreload" crossorigin href="/habitat-demo/assets/meshopt_decoder.module-DPrBktm2.js">
+  <link rel="modulepreload" crossorigin href="/habitat-demo/assets/RoomEnvironment-DWnzUB_h.js">
+  <link rel="modulepreload" crossorigin href="/habitat-demo/assets/build-CAAuQzbN.js">
+  <link rel="stylesheet" crossorigin href="/habitat-demo/assets/breed-CzLxvl4h.css">
+</head>
+<body>
+<div id="app"></div>
+
+<div id="loading" class="loading">
+  <div class="k">BREED · SPECIES INCUBATOR</div>
+  <div class="t">正在唤醒亲本</div>
+  <div class="bar"><i id="load-fill"></i></div>
+</div>
+
+<header id="brand">
+  <div class="k">AHOLO LUX3D · SPECIES BREEDING LAB</div>
+  <h1>物种繁育所</h1>
+  <p>SELECT TWO PARENTS · GENERATE A NEW SPECIES</p>
+</header>
+
+<div id="hint">选择两个亲本 → 交配 → 生成一只新物种</div>
+
+<div id="parents">
+  <button class="parent" data-i="0">
+    <span class="p-index">01</span>
+    <span class="p-name">青玉龙</span>
+    <span class="p-trait">四足 · 双翼 · 鳃</span>
+  </button>
+  <button class="parent" data-i="1">
+    <span class="p-index">02</span>
+    <span class="p-name">六足孢兽</span>
+    <span class="p-trait">六足 · 翼膜 · 发光器</span>
+  </button>
+  <button class="parent" data-i="2">
+    <span class="p-index">03</span>
+    <span class="p-name">盲眼幼体</span>
+    <span class="p-trait">六足 · 无眼 · 骨白</span>
+  </button>
+  <button class="parent" data-i="3">
+    <span class="p-index">04</span>
+    <span class="p-name">石苔守卫</span>
+    <span class="p-trait">四足 · 石甲 · 苔藓</span>
+  </button>
+</div>
+
+<button id="breed" disabled>交配 · BREED →</button>
+
+<div id="steps" class="steps hidden">
+  <div class="steps-inner">
+    <div class="k">COMPILING OFFSPRING</div>
+    <div id="step-label">合并性状</div>
+    <div class="track"><i id="step-fill"></i></div>
+    <div id="step-detail">四足 + 六足 / 双翼 + 翼膜 / 鳃 + 发光器</div>
+  </div>
+</div>
+
+<div id="child-card" class="modal hidden">
+  <div class="panel">
+    <div class="head">
+      <div>
+        <div class="k">OFFSPRING · GENERATION 01</div>
+        <h2 id="child-name">羽鳃龙裔 · DRAKE-01</h2>
+      </div>
+      <button id="close-card">✕</button>
+    </div>
+    <p class="lead" id="child-desc">青玉龙 × 六足孢兽。四足、双翼、背部鳃状发光器；骨白甲片与青玉相间。</p>
+    <div class="traits" id="child-traits">
+      <div><span>身体</span><b>四足 + 双翼</b></div>
+      <div><span>呼吸</span><b>鳃 + 发光器</b></div>
+      <div><span>皮肤</span><b>青玉 + 骨白</b></div>
+      <div><span>行为</span><b>洞穴筑巢</b></div>
+    </div>
+    <div class="meta">
+      <div><span>LUX3D TASK</span><b id="child-task">#8386039</b></div>
+      <div><span>LINEAGE</span><b id="child-lineage">JADE WYRM × NOVA-01</b></div>
+    </div>
+    <div class="actions">
+      <button id="again">再繁育 ↺</button>
+      <button id="download">下载世代卡 JSON</button>
+    </div>
+    <p class="note">FOR GAME / FILM CREATURE DESIGN · 每只子代都是真实生成</p>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+</body>
+</html>
